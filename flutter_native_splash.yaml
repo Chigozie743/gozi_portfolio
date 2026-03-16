@@ -1,0 +1,15 @@
+flutter_native_splash:
+  color: "#0D1025"
+  image: assets/logo/gozie_logo.png
+
+  android_12:
+    color: "#0D1025"
+    image: assets/logo/gozie_logo.png
+
+  web: true
+  android: true
+  ios: true
+
+  android_gravity: center
+  ios_content_mode: center
+  fullscreen: true
