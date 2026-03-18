@@ -21,6 +21,7 @@ class PortfolioScreen extends ConsumerStatefulWidget {
 }
 
 class _PortfolioScreenState extends ConsumerState<PortfolioScreen> {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
   final _heroKey = GlobalKey();
   final _aboutKey = GlobalKey();
   final _projectsKey = GlobalKey();
@@ -52,6 +53,15 @@ class _PortfolioScreenState extends ConsumerState<PortfolioScreen> {
     );
   }
 
+  Future<void> _navigateFromDrawer(GlobalKey key) async {
+    Navigator.of(context).pop();
+    await Future<void>.delayed(const Duration(milliseconds: 220));
+    if (!mounted) {
+      return;
+    }
+    await _scrollTo(key);
+  }
+
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(portfolioStateNotifierProvider);
@@ -60,7 +70,14 @@ class _PortfolioScreenState extends ConsumerState<PortfolioScreen> {
     final isDesktop = width >= 1024;
 
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: AppColors.background,
+      endDrawer: _MobileMenuDrawer(
+        onHomeTap: () => _navigateFromDrawer(_heroKey),
+        onAboutTap: () => _navigateFromDrawer(_aboutKey),
+        onProjectsTap: () => _navigateFromDrawer(_projectsKey),
+        onContactTap: () => _navigateFromDrawer(_contactKey),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(
@@ -81,6 +98,7 @@ class _PortfolioScreenState extends ConsumerState<PortfolioScreen> {
                       onAboutTap: () => _scrollTo(_aboutKey),
                       onProjectsTap: () => _scrollTo(_projectsKey),
                       onContactTap: () => _scrollTo(_contactKey),
+                      onMenuTap: () => _scaffoldKey.currentState?.openEndDrawer(),
                     ),
                   ),
                   const SizedBox(height: 28),
@@ -435,6 +453,72 @@ class _PortfolioScreenState extends ConsumerState<PortfolioScreen> {
                 ],
               ),
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _MobileMenuDrawer extends StatelessWidget {
+  const _MobileMenuDrawer({
+    required this.onHomeTap,
+    required this.onAboutTap,
+    required this.onProjectsTap,
+    required this.onContactTap,
+  });
+
+  final VoidCallback onHomeTap;
+  final VoidCallback onAboutTap;
+  final VoidCallback onProjectsTap;
+  final VoidCallback onContactTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      backgroundColor: AppColors.surface.withValues(alpha: 0.92),
+      child: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Align(
+                alignment: Alignment.centerRight,
+                child: IconButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  icon: const Icon(Icons.close, color: AppColors.textPrimary),
+                ),
+              ),
+              ListTile(
+                title: const Text(
+                  'Home',
+                  style: TextStyle(color: AppColors.textPrimary),
+                ),
+                onTap: onHomeTap,
+              ),
+              ListTile(
+                title: const Text(
+                  'About',
+                  style: TextStyle(color: AppColors.textPrimary),
+                ),
+                onTap: onAboutTap,
+              ),
+              ListTile(
+                title: const Text(
+                  'Projects',
+                  style: TextStyle(color: AppColors.textPrimary),
+                ),
+                onTap: onProjectsTap,
+              ),
+              ListTile(
+                title: const Text(
+                  'Contact',
+                  style: TextStyle(color: AppColors.textPrimary),
+                ),
+                onTap: onContactTap,
+              ),
+            ],
           ),
         ),
       ),
