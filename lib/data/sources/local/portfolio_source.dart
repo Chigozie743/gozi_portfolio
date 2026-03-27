@@ -36,15 +36,17 @@ class PortfolioSource {
         androidUrl:
             'https://play.google.com/store/apps/details?id=com.libribooks',
         iosUrl: 'https://apps.apple.com/us/app/mylibri-books/id1528198803',
+        imageAsset: PortfolioAssetsPath.myLibriBooksImage,
       ),
       ProjectModel(
         name: 'LoadNG',
         summary:
-            'A utility payment and airtime platform focused on smooth checkout and reliability.',
+          'Automated Bitcoin-to-Naira exchange app for Nigeria with instant wallet-to-bank conversion from major crypto wallets.',
         platform: 'Mobile',
         androidUrl:
             'https://play.google.com/store/apps/details?id=loadng.com.loadng',
         iosUrl: 'https://apps.apple.com/ng/app/loadng/id1537865343',
+        imageAsset: PortfolioAssetsPath.loadNgImage,
       ),
       ProjectModel(
         name: 'Gate Africa',
@@ -64,6 +66,7 @@ class PortfolioSource {
         androidUrl:
             'https://play.google.com/store/apps/details?id=com.optisoft.rosabon',
         iosUrl: 'https://apps.apple.com/us/app/rosabon/id6449434438',
+        imageAsset: PortfolioAssetsPath.rosabonImage,
       ),
       ProjectModel(
         name: 'Nurquest App',
