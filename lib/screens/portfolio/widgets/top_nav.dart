@@ -24,6 +24,34 @@ class TopNav extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final isCompact = width < 700;
 
+    if (isCompact) {
+      return Row(
+        children: [
+          Expanded(
+            child: Text(
+              AppTexts.appName,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: GoogleFonts.blackOpsOne(
+                color: AppColors.textPrimary,
+                fontSize: 20,
+              ),
+            ),
+          ),
+          const SizedBox(width: 14),
+          IconButton(
+            onPressed: onMenuTap,
+            splashRadius: 22,
+            icon: const Icon(
+              Icons.more_horiz_rounded,
+              color: Colors.white,
+              size: 34,
+            ),
+          ),
+        ],
+      );
+    }
+
     return Wrap(
       alignment: WrapAlignment.spaceBetween,
       runSpacing: 10,
@@ -33,29 +61,18 @@ class TopNav extends StatelessWidget {
           AppTexts.appName,
           style: GoogleFonts.blackOpsOne(
             color: AppColors.textPrimary,
-            fontSize: isCompact ? 20 : 26,
+            fontSize: 26,
           ),
         ),
-        if (isCompact)
-          IconButton(
-            onPressed: onMenuTap,
-            splashRadius: 22,
-            icon: const Icon(
-              Icons.more_horiz_rounded,
-              color: Colors.white,
-              size: 34,
-            ),
-          )
-        else
-          Wrap(
-            spacing: 8,
-            children: [
-              TextButton(onPressed: onHeroTap, child: const Text('Home')),
-              TextButton(onPressed: onAboutTap, child: const Text('About')),
-              TextButton(onPressed: onProjectsTap, child: const Text('Projects')),
-              TextButton(onPressed: onContactTap, child: const Text('Contact')),
-            ],
-          ),
+        Wrap(
+          spacing: 8,
+          children: [
+            TextButton(onPressed: onHeroTap, child: const Text('Home')),
+            TextButton(onPressed: onAboutTap, child: const Text('About')),
+            TextButton(onPressed: onProjectsTap, child: const Text('Projects')),
+            TextButton(onPressed: onContactTap, child: const Text('Contact')),
+          ],
+        ),
       ],
     );
   }

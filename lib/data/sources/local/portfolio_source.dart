@@ -25,6 +25,7 @@ class PortfolioSource {
         androidUrl:
             'https://play.google.com/store/apps/details?id=co.savertech.cardify',
         iosUrl: 'https://apps.apple.com/us/app/cardify-africa/id6449608887',
+        imageAsset: 'assets/images/cardify_africa.png',
       ),
       ProjectModel(
         name: 'MyLibri Books',
