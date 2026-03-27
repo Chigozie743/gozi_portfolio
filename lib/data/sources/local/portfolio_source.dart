@@ -1,3 +1,4 @@
+import 'package:gozie_williams_portfolio/constants/utils/app_assets.dart';
 import 'package:gozie_williams_portfolio/models/profile/profile_model.dart';
 import 'package:gozie_williams_portfolio/models/project/project_model.dart';
 
@@ -25,7 +26,7 @@ class PortfolioSource {
         androidUrl:
             'https://play.google.com/store/apps/details?id=co.savertech.cardify',
         iosUrl: 'https://apps.apple.com/us/app/cardify-africa/id6449608887',
-        imageAsset: 'assets/images/cardify_africa.png',
+        imageAsset: PortfolioAssetsPath.cardifyAfricaImage,
       ),
       ProjectModel(
         name: 'MyLibri Books',
@@ -53,6 +54,7 @@ class PortfolioSource {
         androidUrl:
             'https://play.google.com/store/apps/details?id=co.savertech.gateAfrica',
         iosUrl: 'https://apps.apple.com/uy/app/gate-africa/id6470201463',
+        imageAsset: PortfolioAssetsPath.gateAfricaImage,
       ),
       ProjectModel(
         name: 'Rosabon Loan App',
