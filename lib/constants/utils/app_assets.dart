@@ -10,6 +10,8 @@ class PortfolioAssetsPath {
 
   static const rosabonImage = '$imagesPath/rosabon.png';
 
+  static const nurquestImage = '$imagesPath/nurquest.png';
+
   static const gateAfricaImage = '$imagesPath/gate_africa.png';
 
   static const cardifyAfricaImage = '$imagesPath/cardify_africa.png';

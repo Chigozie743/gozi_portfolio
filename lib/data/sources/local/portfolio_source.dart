@@ -76,6 +76,7 @@ class PortfolioSource {
         androidUrl:
             'https://play.google.com/store/apps/details?id=rightislam.com.ng',
         iosUrl: 'https://apps.apple.com/us/app/nurquest/id6502515755',
+        imageAsset: PortfolioAssetsPath.nurquestImage,
       ),
       ProjectModel(
         name: 'Skillwave',
