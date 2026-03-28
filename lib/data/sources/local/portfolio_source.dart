@@ -85,6 +85,7 @@ class PortfolioSource {
         platform: 'Mobile',
         androidUrl:
             'https://play.google.com/store/apps/details?id=com.skillwave.customer',
+        imageAsset: PortfolioAssetsPath.skillwaveImage,
       ),
       ProjectModel(
         name: 'Smart Agent',
