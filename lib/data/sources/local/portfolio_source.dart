@@ -81,7 +81,7 @@ class PortfolioSource {
       ProjectModel(
         name: 'Skillwave',
         summary:
-            'Customer-facing learning and service platform with polished mobile workflows.',
+          'All-in-one service marketplace for booking verified providers, managing tasks, and handling secure payments with ease.',
         platform: 'Mobile',
         androidUrl:
             'https://play.google.com/store/apps/details?id=com.skillwave.customer',
@@ -90,10 +90,11 @@ class PortfolioSource {
       ProjectModel(
         name: 'Smart Agent',
         summary:
-            'Agent utility application focused on speed, reliability, and simple onboarding.',
+          'Commission-based agent app for assisting users with registrations, bookings, and purchases while tracking earnings on Skillwave.',
         platform: 'Mobile',
         androidUrl:
             'https://play.google.com/store/apps/details?id=com.smart.agent',
+        imageAsset: PortfolioAssetsPath.smartAgentImage,
       ),
     ];
   }

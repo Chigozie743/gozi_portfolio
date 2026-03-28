@@ -95,6 +95,10 @@ class _PortfolioScreenState extends ConsumerState<PortfolioScreen> {
               if (!isCompact)
                 AnimatedReveal(show: _show, delayMs: 0, child: topNav),
               if (!isCompact) const SizedBox(height: 28),
+
+              /////////////////////////////////////////////////////////////////////////////////////////////////////////
+              /// SECTION 1: HEADER
+              /////////////////////////////////////////////////////////////////////////////////////////////////////////
               AnimatedReveal(
                 show: _show,
                 delayMs: 80,
@@ -177,6 +181,10 @@ class _PortfolioScreenState extends ConsumerState<PortfolioScreen> {
                 ),
               ),
               const SizedBox(height: 24),
+
+              /////////////////////////////////////////////////////////////////////////////////////////////////////////
+              /// SECTION 2: ABOUT
+              /////////////////////////////////////////////////////////////////////////////////////////////////////////
               AnimatedReveal(
                 show: _show,
                 delayMs: 160,
@@ -273,6 +281,10 @@ class _PortfolioScreenState extends ConsumerState<PortfolioScreen> {
                 ),
               ),
               const SizedBox(height: 24),
+
+              /////////////////////////////////////////////////////////////////////////////////////////////////////////
+              /// SECTION 3: PROJECTS
+              /////////////////////////////////////////////////////////////////////////////////////////////////////////
               AnimatedReveal(
                 show: _show,
                 delayMs: 240,
@@ -357,6 +369,10 @@ class _PortfolioScreenState extends ConsumerState<PortfolioScreen> {
                 ),
               ),
               const SizedBox(height: 24),
+
+              /////////////////////////////////////////////////////////////////////////////////////////////////////////
+              /// SECTION 4: CONTACT
+              /////////////////////////////////////////////////////////////////////////////////////////////////////////
               AnimatedReveal(
                 show: _show,
                 delayMs: 320,
@@ -438,6 +454,10 @@ class _PortfolioScreenState extends ConsumerState<PortfolioScreen> {
                 ),
               ),
               const SizedBox(height: 20),
+
+              /////////////////////////////////////////////////////////////////////////////////////////////////////////
+              /// SECTION 5: FOOTER
+              /////////////////////////////////////////////////////////////////////////////////////////////////////////
               const Center(
                 child: Text(
                   '© 2026 Gozie Williams. All rights reserved.',

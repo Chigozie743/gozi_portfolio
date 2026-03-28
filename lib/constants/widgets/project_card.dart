@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gozie_williams_portfolio/constants/utils/app_colors.dart';
 import 'package:gozie_williams_portfolio/models/project/project_model.dart';
 
-class ProjectCard extends StatelessWidget {
+class ProjectCard extends StatefulWidget {
   const ProjectCard({
     super.key,
     required this.project,
@@ -13,6 +13,13 @@ class ProjectCard extends StatelessWidget {
   final ProjectModel project;
   final VoidCallback onOpenAndroid;
   final VoidCallback? onOpenIos;
+
+  @override
+  State<ProjectCard> createState() => _ProjectCardState();
+}
+
+class _ProjectCardState extends State<ProjectCard> {
+  bool _isImageHovered = false;
 
   @override
   Widget build(BuildContext context) {
@@ -26,20 +33,31 @@ class ProjectCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-            if (project.imageAsset != null) ...[
-              ClipRRect(
+          if (widget.project.imageAsset != null) ...[
+            MouseRegion(
+              onEnter: (_) => setState(() => _isImageHovered = true),
+              onExit: (_) => setState(() => _isImageHovered = false),
+              child: ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  project.imageAsset!,
+                child: SizedBox(
                   height: 240,
                   width: double.infinity,
-                  fit: BoxFit.cover,
+                  child: AnimatedScale(
+                    scale: _isImageHovered ? 1.0 : 1.08,
+                    duration: const Duration(milliseconds: 260),
+                    curve: Curves.easeOutCubic,
+                    child: Image.asset(
+                      widget.project.imageAsset!,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
               ),
-              const SizedBox(height: 16),
-            ],
+            ),
+            const SizedBox(height: 16),
+          ],
           Text(
-            project.name,
+            widget.project.name,
             style: const TextStyle(
               color: AppColors.textPrimary,
               fontSize: 20,
@@ -48,7 +66,7 @@ class ProjectCard extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            project.summary,
+            widget.project.summary,
             style: const TextStyle(
               color: AppColors.textSecondary,
               height: 1.5,
@@ -62,7 +80,7 @@ class ProjectCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(100),
             ),
             child: Text(
-              project.platform,
+              widget.project.platform,
               style: const TextStyle(
                 color: AppColors.textPrimary,
                 fontWeight: FontWeight.w600,
@@ -75,12 +93,12 @@ class ProjectCard extends StatelessWidget {
             runSpacing: 10,
             children: [
               FilledButton(
-                onPressed: onOpenAndroid,
+                onPressed: widget.onOpenAndroid,
                 style: FilledButton.styleFrom(backgroundColor: AppColors.primary),
                 child: const Text('Android'),
               ),
               OutlinedButton(
-                onPressed: onOpenIos,
+                onPressed: widget.onOpenIos,
                 style: OutlinedButton.styleFrom(
                   side: const BorderSide(color: AppColors.border),
                 ),

@@ -14,6 +14,8 @@ class PortfolioAssetsPath {
 
   static const skillwaveImage = '$imagesPath/skillwave_b.png';
 
+  static const smartAgentImage = '$imagesPath/smart_agent.png';
+
   static const gateAfricaImage = '$imagesPath/gate_africa.png';
 
   static const cardifyAfricaImage = '$imagesPath/cardify_africa.png';
