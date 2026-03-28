@@ -5,6 +5,15 @@ class PortfolioAssetsPath {
 
   static const logosPath = 'assets/logos';
 
+  //***************** APP ICONS  ********************
+  static const mailIcon = '$iconsPath/email.png';
+
+  static const gitHubIcon = '$iconsPath/github.png';
+
+  static const linkedInIcon = '$iconsPath/linkedin.png';
+
+  static const whatsAppIcon = '$iconsPath/whatsapp.png';
+
   //***************** APP IMAGES  ********************
   static const loadNgImage = '$imagesPath/loadng.png';
 

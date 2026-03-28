@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gozie_williams_portfolio/constants/utils/app_assets.dart';
 import 'package:gozie_williams_portfolio/constants/utils/app_colors.dart';
 import 'package:gozie_williams_portfolio/constants/widgets/social_link_chip.dart';
 
@@ -8,11 +9,13 @@ class ConnectCard extends StatelessWidget {
     required this.onGithub,
     required this.onLinkedIn,
     required this.onEmail,
+    required this.onWhatsApp,
   });
 
   final VoidCallback onGithub;
   final VoidCallback onLinkedIn;
   final VoidCallback onEmail;
+  final VoidCallback onWhatsApp;
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +42,26 @@ class ConnectCard extends StatelessWidget {
             spacing: 10,
             runSpacing: 10,
             children: [
-              SocialLinkChip(label: 'Email', onTap: onEmail),
-              SocialLinkChip(label: 'GitHub', onTap: onGithub),
-              SocialLinkChip(label: 'LinkedIn', onTap: onLinkedIn),
+              SocialLinkChip(
+                label: 'Email',
+                onTap: onEmail,
+                iconPath: PortfolioAssetsPath.mailIcon,
+              ),
+              SocialLinkChip(
+                label: 'GitHub',
+                onTap: onGithub,
+                iconPath: PortfolioAssetsPath.gitHubIcon,
+              ),
+              SocialLinkChip(
+                label: 'LinkedIn',
+                onTap: onLinkedIn,
+                iconPath: PortfolioAssetsPath.linkedInIcon,
+              ),
+              SocialLinkChip(
+                label: 'WhatsApp',
+                onTap: onWhatsApp,
+                iconPath: PortfolioAssetsPath.whatsAppIcon,
+              ),
             ],
           ),
         ],

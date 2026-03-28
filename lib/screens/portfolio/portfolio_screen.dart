@@ -439,6 +439,9 @@ class _PortfolioScreenState extends ConsumerState<PortfolioScreen> {
                               onEmail: () => UrlLauncherHelper.openUrl(
                                 'mailto:iwuohacwilliams@gmail.com',
                               ),
+                              onWhatsApp: () => UrlLauncherHelper.openUrl(
+                                'https://wa.me/2348078165163',
+                              ),
                             ),
                           ),
                         ],
