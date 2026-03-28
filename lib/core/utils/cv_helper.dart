@@ -12,10 +12,19 @@ class CvHelper {
 
   static Future<void> openCv() async {
     if (kIsWeb) {
-      // Resolve against the current page URL so Vercel (and any host) gets
-      // the correct absolute path: https://your-domain.vercel.app/assets/docs/...
-      final url = Uri.base.resolve(_assetPath);
-      await launchUrl(url, webOnlyWindowName: '_blank');
+      final webAssetUrl = Uri.base.resolve('assets/$_assetPath');
+      final fallbackUrl = Uri.base.resolve(_assetPath);
+
+      final opened = await launchUrl(
+        webAssetUrl,
+        webOnlyWindowName: '_blank',
+      );
+      if (!opened) {
+        await launchUrl(
+          fallbackUrl,
+          webOnlyWindowName: '_blank',
+        );
+      }
       return;
     }
 
